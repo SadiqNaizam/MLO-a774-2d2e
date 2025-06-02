@@ -4,54 +4,54 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Raw HSL values from PRD */
+    --p-color-background-val: 220 20% 95%; /* #F0F2F5 */
+    --p-color-surface-val: 0 0% 100%; /* #FFFFFF */
+    --p-color-sidebar-val: 216 10% 92%; /* #E9EBEC */
+    --p-color-primary-text-val: 220 7% 12%; /* #1C1E21 */
+    --p-color-secondary-text-val: 213 8% 41%; /* #606770 */
+    --p-color-accent-blue-val: 217 91% 52%; /* #1877F2 */
+    --p-color-accent-gray-val: 220 14% 96%; /* #F5F6F7 */
+    --p-color-border-val: 220 12% 87%; /* #DADDE1 */
+    --p-color-white-val: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Shadcn/Radix UI Theme Variables */
+    --background: var(--p-color-background-val);
+    --foreground: var(--p-color-primary-text-val);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: var(--p-color-surface-val);
+    --card-foreground: var(--p-color-primary-text-val);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: var(--p-color-surface-val);
+    --popover-foreground: var(--p-color-primary-text-val);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: var(--p-color-accent-blue-val);
+    --primary-foreground: var(--p-color-white-val);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: var(--p-color-accent-gray-val);
+    --secondary-foreground: var(--p-color-primary-text-val);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: var(--p-color-accent-gray-val);
+    --muted-foreground: var(--p-color-secondary-text-val);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: var(--p-color-accent-blue-val);
+    --accent-foreground: var(--p-color-white-val);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%; /* Kept from original */
+    --destructive-foreground: 210 40% 98%; /* Kept from original */
 
-    --radius: 0.5rem;
+    --border: var(--p-color-border-val);
+    --input: var(--p-color-border-val);
+    --ring: var(--p-color-accent-blue-val);
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 0.5rem; /* Kept from original */
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Font */
+    --font-sans: "Arial", sans-serif;
   }
 
   .dark {
+    /* Dark mode variables - Kept from original, PRD does not specify dark mode */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -79,23 +79,20 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Note: Complex sidebar variables from original dark mode were removed for consistency 
+       with the simplified sidebar approach based on PRD for light mode. 
+       If specific dark mode sidebar theming is required, it should be defined here. */
   }
-}
 
-@layer base {
+  /* Base element styles */
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
